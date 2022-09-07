@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 25,
   },
   header: {
-    color: 'C996CC',
+    color: '#C996CC',
     fontSize: 50,
     fontWeight: 'bold',
     marginBottom: 20,
