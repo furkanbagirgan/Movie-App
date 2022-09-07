@@ -20,7 +20,7 @@ const Tabs = () => {
             iconName = 'home';
             iconSize = 30;
           } else if (route.name === 'Search') {
-            iconName = 'search';
+            iconName = 'text-search';
             iconSize = 35;
           } else if (route.name === 'Settings') {
             iconName = 'cog';

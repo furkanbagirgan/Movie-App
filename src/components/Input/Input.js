@@ -9,7 +9,7 @@ function Input(props) {
   return (
     <View
       style={styles.container}>
-      <Icon name={props.iconName} size={20} color="#8C8C8C" />
+      <Icon name={props.iconName} size={20} color="#C996CC" />
       <TextInput {...props} style={styles.input} />
     </View>
   );
