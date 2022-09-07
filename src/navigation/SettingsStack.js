@@ -1,9 +1,9 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
-import Profile from './screens/Profile';
-import Settings from './screens/Settings';
-import Theme from './screens/Theme';
+import Profile from './../screens/Profile';
+import Settings from './../screens/Settings';
+import Theme from './../screens/Theme';
 
 const Stack = createNativeStackNavigator();
 

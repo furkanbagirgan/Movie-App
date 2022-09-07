@@ -1,9 +1,10 @@
+import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
-import Home from '../screens/Home'
-import Search from '../screens/Search'
-import SettingsStack from '../screens/SettingsStack'
+import Home from './../screens/Home'
+import Search from './../screens/Search'
+import SettingsStack from './SettingsStack'
 
 const Tab = createBottomTabNavigator();
 
@@ -18,11 +19,11 @@ const Tabs = () => {
           let iconSize;
           if (route.name === 'Home') {
             iconName = 'home';
-            iconSize = 30;
+            iconSize = 35;
           } else if (route.name === 'Search') {
             iconName = 'text-search';
             iconSize = 35;
-          } else if (route.name === 'Settings') {
+          } else if (route.name === 'SettingsStack') {
             iconName = 'cog';
             iconSize = 30;
           }
