@@ -14,7 +14,7 @@ function Button({title, onClick, loading}) {
     <TouchableWithoutFeedback onPress={onClick}>
       <View style={styles.container}>
         {loading ? (
-          <ActivityIndicator size={25} color="#C996CC" />
+          <ActivityIndicator size={25} color='white' />
         ) : (
           <Text style={styles.title}>{title}</Text>
         )}
