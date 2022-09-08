@@ -1,15 +1,15 @@
-import React,{useState} from 'react';
-import {View, Image, SafeAreaView} from 'react-native';
+import React from 'react';
+import {View, Image, SafeAreaView, Text} from 'react-native';
+import {useSelector} from 'react-redux';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import styles from './Settings.style';
 import Button from '../../components/Button';
 
 const Settings = ({navigation}) => {
-  //Necessary context data and states are created.
-  const [theme,setTheme]=useState('light');
-  //const {setCurrentUser} = useUser();
-  //const {theme} = useTheme();
+  //Necessary states are created.
+  const userSession = useSelector((state)=>state.auth.currentUser);
+  const theme = useSelector((state)=>state.theme.theme);
 
   //Here is the transition to the theme page.
   const goTheme = () => {
@@ -42,6 +42,7 @@ const Settings = ({navigation}) => {
           style={styles.image}
         />
       </View>
+      <Text style={theme === 'light' ? styles.lightUserName : styles.darkUserName}>{'@ '+userSession.userName}</Text>
       <Button title="Theme" onClick={goTheme} />
       <Button title="Edit profile" onClick={goEditProfile} />
       <Button title="Log out" onClick={logOut} />
