@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
   },
   darkContainer: {
     flex: 1,
-    backgroundColor: '#333',
+    backgroundColor: '#1C0C5B',
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',

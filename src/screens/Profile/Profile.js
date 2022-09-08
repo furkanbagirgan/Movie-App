@@ -1,39 +1,39 @@
 import React, {useState} from 'react';
 import {SafeAreaView} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import {useSelector,useDispatch} from 'react-redux';
 
 import styles from './Profile.style';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
+import {setCurrentUser} from '../../redux/authSlice';
 
 const Profile = () => {
   //Necessary context data and states are created.
-  //const {currentUser, setCurrentUser} = useUser();
-  //const {theme} = useTheme();
-  const [theme,setTheme]=useState('light');
-  const [firstName, setFirstName] = useState(currentUser.firstName);
-  const [lastName, setLastName] = useState(currentUser.lastName);
-  const [userName, setUserName] = useState(currentUser.userName);
+  const userSession = useSelector((state)=>state.auth.currentUser);
+  const theme = useSelector((state)=>state.theme.theme);
+  const dispatch = useDispatch();
+  const [loading, setLoading] = useState(false);
+  const [email, setEmail] = useState(userSession.email);
+  const [password, setPassword] = useState(userSession.password);
+  const [userName, setUserName] = useState(userSession.userName);
 
   //Changed user data here is updated via context and storage.
   const save = async () => {
+    setLoading(true);
     try {
-      const userValue = JSON.stringify({
-        ...currentUser,
-        firstName,
-        lastName,
+      const userData = {
+        ...userSession,
+        email,
+        password,
         userName,
-      });
-      await AsyncStorage.mergeItem('@userValue', userValue);
-      /*setCurrentUser({
-        ...currentUser,
-        firstName,
-        lastName,
-        userName,
-      });*/
+      };
+      await AsyncStorage.mergeItem('@userValue', JSON.stringify(userData));
+      dispatch(setCurrentUser(userData));
     } catch (error) {
       console.log('Storage Write Error');
     }
+    setLoading(false);
   };
 
   //Here, the inputs to update the user data and the save button are pressed on the screen.
@@ -41,30 +41,31 @@ const Profile = () => {
     <SafeAreaView
       style={theme === 'light' ? styles.lightContainer : styles.darkContainer}>
       <Input
-        placeholder="First Name"
+        placeholder="Email"
         theme={theme}
-        placeholderTextColor="#8C8C8C"
-        value={firstName}
-        iconName="account-details"
-        onChangeText={setFirstName}
+        placeholderTextColor="#C996CC"
+        value={email}
+        iconName="email"
+        onChangeText={setEmail}
       />
       <Input
-        placeholder="Last Name"
+        placeholder="Password"
         theme={theme}
-        placeholderTextColor="#8C8C8C"
-        value={lastName}
-        iconName="account-details"
-        onChangeText={setLastName}
+        placeholderTextColor="#C996CC"
+        value={password}
+        iconName="lock"
+        onChangeText={setPassword}
+        secureTextEntry={true}
       />
       <Input
         placeholder="User Name"
         theme={theme}
-        placeholderTextColor="#8C8C8C"
+        placeholderTextColor="#C996CC"
         value={userName}
-        iconName="account-box"
+        iconName="at"
         onChangeText={setUserName}
       />
-      <Button title="Save" onClick={save} />
+      <Button title="Save" loading={loading} onClick={save} />
     </SafeAreaView>
   );
 };
