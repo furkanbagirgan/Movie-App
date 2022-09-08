@@ -17,7 +17,7 @@ const Login = ({navigation}) => {
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
 
-  //The user data entered here and the initial theme are saved to the authSlice and storage.
+  //By checking the email from the server, user data and the first theme value are saved to redux and storage.
   const login = async () => {
     setLoading(true);
     try {
@@ -43,6 +43,7 @@ const Login = ({navigation}) => {
     setLoading(false);
   };
 
+  //Here is the transition to the sign up page.
   const goToSignup = () => {
     navigation.navigate('Signup');
   };
