@@ -1,15 +1,17 @@
 import React from 'react';
 import {View, Image, SafeAreaView, Text} from 'react-native';
-import {useSelector} from 'react-redux';
+import {useSelector,useDispatch} from 'react-redux';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import styles from './Settings.style';
 import Button from '../../components/Button';
+import {resetUser} from '../../redux/authSlice';
 
 const Settings = ({navigation}) => {
   //Necessary states are created.
   const userSession = useSelector((state)=>state.auth.currentUser);
   const theme = useSelector((state)=>state.theme.theme);
+  const dispatch = useDispatch();
 
   //Here is the transition to the theme page.
   const goTheme = () => {
@@ -24,9 +26,9 @@ const Settings = ({navigation}) => {
   //Here, user data is deleted via context and storage.
   const logOut = async () => {
     try {
-      await AsyncStorage.removeItem('@userValue');
-      await AsyncStorage.removeItem('@themeValue');
-      //setCurrentUser({});
+      await AsyncStorage.removeItem('@userData');
+      await AsyncStorage.removeItem('@themeData');
+      dispatch(resetUser());
     } catch (error) {
       console.log('Storage Write Error');
     }
