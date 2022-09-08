@@ -4,7 +4,7 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import Home from './../screens/Home'
 import Search from './../screens/Search'
-import SettingsStack from './SettingsStack'
+import Settings from './../screens/Settings'
 
 const Tab = createBottomTabNavigator();
 
@@ -23,7 +23,7 @@ const Tabs = () => {
           } else if (route.name === 'Search') {
             iconName = 'text-search';
             iconSize = 35;
-          } else if (route.name === 'SettingsStack') {
+          } else if (route.name === 'Settings') {
             iconName = 'cog';
             iconSize = 30;
           }
@@ -41,8 +41,8 @@ const Tabs = () => {
       <Tab.Screen name="Home" component={Home} />
       <Tab.Screen name="Search" component={Search} />
       <Tab.Screen
-        name="SettingsStack"
-        component={SettingsStack}
+        name="Settings"
+        component={Settings}
         options={{headerShown: false}}
       />
     </Tab.Navigator>
