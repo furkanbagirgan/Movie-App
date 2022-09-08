@@ -24,12 +24,12 @@ const Login = ({navigation}) => {
       const response = await axios.get(
         `http://192.168.1.4:3000/userLogins?email=${email}`,
       );
-      if (response.status === 200) {
+      if (response.status === 200 || response.status === 304) {
         const userLogin = response.data;
         if (userLogin.length !== 0) {
-          await AsyncStorage.setItem('@userData', JSON.stringify(userLogin));
+          await AsyncStorage.setItem('@userData', JSON.stringify(userLogin[0]));
           await AsyncStorage.setItem('@themeData', JSON.stringify('light'));
-          dispatch(setCurrentUser(userLogin));
+          dispatch(setCurrentUser(userLogin[0]));
           dispatch(setTheme('light'));
         } else {
           Alert.alert('Error', 'No account found with this email address!');

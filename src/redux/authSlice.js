@@ -11,7 +11,7 @@ const authSlice = createSlice({
         currentUser: action.payload,
       };
     },
-    resetUser: () => {
+    resetUser: (state,action) => {
       return {
         currentUser: {},
       };
