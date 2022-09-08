@@ -1,20 +1,22 @@
-import React, { useState } from 'react';
-import {Text, View, SafeAreaView, TouchableHighlight} from 'react-native';
+import React from 'react';
+import {Text, View, SafeAreaView, TouchableWithoutFeedback} from 'react-native';
+import {useSelector,useDispatch} from 'react-redux';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import styles from './Theme.style';
+import { setTheme } from '../../redux/themeSlice';
 
 const Theme = () => {
   //Necessary context data and states are created.
-  const [theme,setTheme]=useState('light');
-  //const {theme, setTheme} = useTheme();
+  const theme = useSelector((state)=>state.theme.theme);
+  const dispatch = useDispatch();
 
   //Here, the existing theme is changed according to the clicked theme.
   const changeTheme = async themeName => {
     try {
-      await AsyncStorage.removeItem('@themeValue');
-      await AsyncStorage.setItem('@themeValue', JSON.stringify(themeName));
-      //setTheme(themeName);
+      await AsyncStorage.removeItem('@themeData');
+      await AsyncStorage.setItem('@themeData', JSON.stringify(themeName));
+      dispatch(setTheme(themeName));
     } catch (error) {
       console.log('Storage Write Error');
     }
@@ -25,11 +27,11 @@ const Theme = () => {
     <SafeAreaView
       style={theme === 'light' ? styles.lightContainer : styles.darkContainer}>
       <View style={styles.themeWrapper}>
-        <TouchableHighlight
+        <TouchableWithoutFeedback
           onPress={() => changeTheme('light')}
           underlayColor="#eee">
           <View style={styles.lightTheme} />
-        </TouchableHighlight>
+        </TouchableWithoutFeedback>
         <Text
           style={
             theme === 'light' ? styles.lightThemeText : styles.darkThemeText
@@ -38,11 +40,11 @@ const Theme = () => {
         </Text>
       </View>
       <View style={styles.themeWrapper}>
-        <TouchableHighlight
+        <TouchableWithoutFeedback
           onPress={() => changeTheme('dark')}
           underlayColor="#eee">
           <View style={styles.darkTheme} />
-        </TouchableHighlight>
+        </TouchableWithoutFeedback>
         <Text
           style={
             theme === 'light' ? styles.lightThemeText : styles.darkThemeText

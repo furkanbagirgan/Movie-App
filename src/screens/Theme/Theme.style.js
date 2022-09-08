@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
   },
   darkContainer: {
     flex: 1,
-    backgroundColor: '#333',
+    backgroundColor: '#1C0C5B',
     padding: 25,
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -25,16 +25,12 @@ const styles = StyleSheet.create({
     height: 125,
     backgroundColor: '#eee',
     borderRadius: 25,
-    borderWidth: 1,
-    borderColor: '#8C8C8C',
   },
   darkTheme: {
     width: 125,
     height: 125,
-    backgroundColor: 'black',
+    backgroundColor: '#3D2C8D',
     borderRadius: 25,
-    borderWidth: 1,
-    borderColor: '#8C8C8C',
   },
   lightThemeText: {
     marginTop: 10,
@@ -43,7 +39,7 @@ const styles = StyleSheet.create({
   },
   darkThemeText: {
     marginTop: 10,
-    color: 'white',
+    color: '#C996CC',
     fontSize: 16,
   },
 });
