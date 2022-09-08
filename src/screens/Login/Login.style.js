@@ -16,6 +16,12 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 20,
   },
+  signupText:{
+    color: '#C996CC',
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginTop: 25,
+  }
 });
 
 export default styles;

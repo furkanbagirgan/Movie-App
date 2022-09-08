@@ -1,12 +1,10 @@
 {
   "userLogins": [
     {
-      "id": 1,
       "email": "furkanbrgn@gmail.com",
-      "password": "sifre123",
+      "password": "deneme",
       "userName": "furkanbrgn",
-      "firstName": "Furkan",
-      "lastName": "Bağırgan"
+      "id": 1
     }
   ]
 }

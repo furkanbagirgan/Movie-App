@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {SafeAreaView, Text} from 'react-native';
+import {Alert, SafeAreaView, Text} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {useDispatch} from 'react-redux';
 
@@ -8,8 +8,9 @@ import Input from '../../components/Input';
 import Button from '../../components/Button';
 import {setCurrentUser} from '../../redux/authSlice';
 import {setTheme} from '../../redux/themeSlice';
+import axios from 'axios';
 
-const Signup = () => {
+const Signup = ({navigation}) => {
   //Necessary states are created.
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState('');
@@ -22,17 +23,40 @@ const Signup = () => {
   const signup = async () => {
     setLoading(true);
     try {
-      const userData = {
-        email,
-        password,
-        userName
-      };
-      await AsyncStorage.setItem('@userData', JSON.stringify(userData));
-      await AsyncStorage.setItem('@themeData', JSON.stringify('light'));
-      dispatch(setCurrentUser(userData));
-      dispatch(setTheme('light'));
+      const response = await axios.get(
+        `http://192.168.1.4:3000/userLogins?email=${email}`,
+      );
+      if (response.status === 200) {
+        const userLogins = response.data;
+        if (userLogins.length === 0) {
+          const userLogin = {
+            email,
+            password,
+            userName,
+          };
+          const res = await axios.post(
+            'http://192.168.1.4:3000/userLogins',
+            userLogin,
+          );
+          if (res.status === 201) {
+            await AsyncStorage.setItem('@userData', JSON.stringify(userLogin));
+            await AsyncStorage.setItem('@themeData', JSON.stringify('light'));
+            dispatch(setCurrentUser(userLogin));
+            dispatch(setTheme('light'));
+          } else {
+            Alert.alert('Error', 'Connection error!');
+          }
+        } else {
+          Alert.alert(
+            'Error',
+            'An account with this email address already exists!',
+          );
+        }
+      } else {
+        Alert.alert('Error', 'Connection error!');
+      }
     } catch (error) {
-      console.log('Storage Write Error');
+      console.log(error.message);
     }
     setLoading(false);
   };

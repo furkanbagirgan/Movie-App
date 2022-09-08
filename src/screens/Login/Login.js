@@ -10,7 +10,7 @@ import {setCurrentUser} from '../../redux/authSlice';
 import {setTheme} from '../../redux/themeSlice';
 import axios from 'axios';
 
-const Login = () => {
+const Login = ({navigation}) => {
   //Necessary states are created.
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState('');
@@ -21,34 +21,30 @@ const Login = () => {
   const login = async () => {
     setLoading(true);
     try {
-      //const response=await axios.get(`http://localhost:3000/userLogins`);
-      const response={status:200,data:{
-        id: 1,
-        email: "furkanbrgn@gmail.com",
-        password: "sifre123",
-        userName: "furkanbrgn",
-        firstName: "Furkan",
-        lastName: "Bağırgan"
-      }};
-      if(response.status === 200){
-        const userLogins=response.data;
-        if(userLogins.length !== 0){
-          await AsyncStorage.setItem('@userData', JSON.stringify(userLogins));
+      const response = await axios.get(
+        `http://192.168.1.4:3000/userLogins?email=${email}`,
+      );
+      if (response.status === 200) {
+        const userLogin = response.data;
+        if (userLogin.length !== 0) {
+          await AsyncStorage.setItem('@userData', JSON.stringify(userLogin));
           await AsyncStorage.setItem('@themeData', JSON.stringify('light'));
-          dispatch(setCurrentUser(userLogins));
+          dispatch(setCurrentUser(userLogin));
           dispatch(setTheme('light'));
+        } else {
+          Alert.alert('Error', 'No account found with this email address!');
         }
-        else{
-          Alert.alert("Hata","Bu email adresine sahip bir hesap bulunamadı!");
-        }
-      }
-      else{
-        Alert.alert("Hata","Bağlantı hatası!");
+      } else {
+        Alert.alert('Error', 'Connection error!');
       }
     } catch (error) {
       console.log(error.message);
     }
     setLoading(false);
+  };
+
+  const goToSignup = () => {
+    navigation.navigate('Signup');
   };
 
   //Here, inputs for user data and button are pressed to the screen.
@@ -72,6 +68,8 @@ const Login = () => {
         secureTextEntry={true}
       />
       <Button title="Login" loading={loading} onClick={login} />
+      <Text style={styles.signupText}>Don't have an account?</Text>
+      <Button title="Sign Up" onClick={goToSignup} />
     </SafeAreaView>
   );
 };
