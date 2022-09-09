@@ -21,14 +21,14 @@ In this assignment, an application with user login and showing movies was develo
 <kbd><img src="screenshots/lightDetail.jpg" width="250"></kbd>
 </div>
 <div>
-<kbd><img src="screenshots/lightSettings.jpg" width="250"></kbd>
-<kbd><img src="screenshots/lightProfile.jpg" width="250"></kbd>
-<kbd><img src="screenshots/lightTheme.jpg" width="250"></kbd>
-</div>
-<div>
 <kbd><img src="screenshots/darkHome.jpg" width="250"></kbd>
 <kbd><img src="screenshots/darkSearch.jpg" width="250"></kbd>
 <kbd><img src="screenshots/darkDetail.jpg" width="250"></kbd>
+</div>
+<div>
+<kbd><img src="screenshots/lightSettings.jpg" width="250"></kbd>
+<kbd><img src="screenshots/lightProfile.jpg" width="250"></kbd>
+<kbd><img src="screenshots/lightTheme.jpg" width="250"></kbd>
 </div>
 <div>
 <kbd><img src="screenshots/darkSettings.jpg" width="250"></kbd>
