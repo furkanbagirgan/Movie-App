@@ -25,7 +25,7 @@ const movieSlice = createSlice({
   initialState: {
     filteredMovies: [],
     loading: false,
-    error: false
+    error: false,
   },
   extraReducers: (builder) => {
     builder
