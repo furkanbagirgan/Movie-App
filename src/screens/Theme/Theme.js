@@ -1,14 +1,14 @@
 import React from 'react';
 import {Text, View, SafeAreaView, TouchableWithoutFeedback} from 'react-native';
-import {useSelector,useDispatch} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import styles from './Theme.style';
-import { setTheme } from '../../redux/themeSlice';
+import {setTheme} from '../../redux/themeSlice';
 
 const Theme = () => {
   //Necessary context data and states are created.
-  const theme = useSelector((state)=>state.theme.theme);
+  const theme = useSelector(state => state.theme.theme);
   const dispatch = useDispatch();
 
   //Here, the existing theme is changed according to the clicked theme.

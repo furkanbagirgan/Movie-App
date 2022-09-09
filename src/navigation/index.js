@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import React, {useCallback, useEffect} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import {useSelector,useDispatch} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import AuthStack from './AuthStack';
@@ -10,11 +10,11 @@ import {setTheme} from '../redux/themeSlice';
 
 const Navigation = () => {
   //The current user information and setCurrentUser function is accessed with the useSelector and useDispatch hook.
-  const userSession = useSelector((state)=>state.auth.currentUser);
+  const userSession = useSelector(state => state.auth.currentUser);
   const dispatch = useDispatch();
 
   //Checking if there is any user data saved in the storage. If there is, this user information is saved in redux.
-  const getUserData = async () => {
+  const getUserData = useCallback(async () => {
     try {
       const userData = await AsyncStorage.getItem('@userData');
       const themeData = await AsyncStorage.getItem('@themeData');
@@ -22,19 +22,19 @@ const Navigation = () => {
         const user = JSON.parse(userData);
         dispatch(setCurrentUser(user));
       }
-      if(themeData !== null) {
+      if (themeData !== null) {
         const theme = JSON.parse(themeData);
         dispatch(setTheme(theme));
       }
     } catch (e) {
       console.log('Storage Read Error');
     }
-  };
+  }, [dispatch]);
 
   //It makes the getUserData function run when the application is first launched.
-  useEffect(()=>{
+  useEffect(() => {
     getUserData();
-  },[]);
+  }, [getUserData]);
 
   //Here, the appropriate navigation structure is displayed on the screen according to the user input status.
   return (

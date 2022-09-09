@@ -10,15 +10,15 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#1C0C5B',
   },
-  errorWrapper:{
+  errorWrapper: {
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
   },
-  errorText:{
+  errorText: {
     color: 'red',
-    fontSize: 18
+    fontSize: 18,
   },
   divider: {
     width: Dimensions.get('screen').width - 30,

@@ -7,12 +7,12 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 15,
-    paddingVertical: 15
+    paddingVertical: 15,
   },
   imageWrapper: {
     width: 100,
     height: 150,
-    alignSelf: 'flex-start'
+    alignSelf: 'flex-start',
   },
   image: {
     width: '100%',
@@ -37,23 +37,23 @@ const styles = StyleSheet.create({
   },
   lightDescription: {
     color: 'black',
-    marginTop: 5
+    marginTop: 5,
   },
   darkDescription: {
     color: 'white',
-    marginTop: 5
+    marginTop: 5,
   },
   lightVote: {
     color: 'black',
     fontWeight: 'bold',
     fontSize: 16,
-    marginTop: 5
+    marginTop: 5,
   },
   darkVote: {
     color: 'white',
     fontWeight: 'bold',
     fontSize: 16,
-    marginTop: 5
+    marginTop: 5,
   },
 });
 

@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    marginHorizontal: 5
+    marginHorizontal: 5,
   },
   activeFilter: {
     paddingHorizontal: 20,
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    marginHorizontal: 5
+    marginHorizontal: 5,
   },
   filterTitle: {
     color: 'white',

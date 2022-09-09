@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {SafeAreaView} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {useSelector,useDispatch} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
 
 import styles from './Profile.style';
 import Input from '../../components/Input';
@@ -10,8 +10,8 @@ import {setCurrentUser} from '../../redux/authSlice';
 
 const Profile = () => {
   //Necessary context data and states are created.
-  const userSession = useSelector((state)=>state.auth.currentUser);
-  const theme = useSelector((state)=>state.theme.theme);
+  const userSession = useSelector(state => state.auth.currentUser);
+  const theme = useSelector(state => state.theme.theme);
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState(userSession.email);

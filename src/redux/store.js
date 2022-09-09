@@ -9,11 +9,11 @@ import DetailReducer from './detailSlice';
 //A store is created by pulling reducers from all slices.
 const store = configureStore({
   reducer: {
-    'auth': AuthReducer,
-    'theme': ThemeReducer,
-    'movie': MovieReducer,
-    'search': SearchReducer,
-    'detail': DetailReducer
+    auth: AuthReducer,
+    theme: ThemeReducer,
+    movie: MovieReducer,
+    search: SearchReducer,
+    detail: DetailReducer,
   },
 });
 

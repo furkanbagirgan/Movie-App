@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     borderWidth: 1,
     borderColor: '#C996CC',
-    backgroundColor: 'transparent'
+    backgroundColor: 'transparent',
   },
   input: {
     marginLeft: 5,

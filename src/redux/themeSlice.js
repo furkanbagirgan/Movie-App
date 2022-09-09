@@ -8,7 +8,7 @@ const themeSlice = createSlice({
   },
   reducers: {
     //The new incoming data is assigned to the existing theme.
-    setTheme: (state,action) => {
+    setTheme: (state, action) => {
       return {
         theme: action.payload,
       };

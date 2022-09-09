@@ -10,15 +10,15 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#1C0C5B',
   },
-  errorWrapper:{
+  errorWrapper: {
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
   },
-  errorText:{
+  errorText: {
     color: 'red',
-    fontSize: 18
+    fontSize: 18,
   },
   divider: {
     width: Dimensions.get('screen').width - 30,
@@ -27,29 +27,29 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-end',
     marginLeft: 15,
   },
-  searchBar:{
+  searchBar: {
     width: '100%',
     height: 65,
-    flexDirection:'row',
-    justifyContent:'space-between',
-    alignItems:'center',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
     marginBottom: 20,
-    paddingHorizontal: 15
+    paddingHorizontal: 15,
   },
-  inputWrapper:{
+  inputWrapper: {
     width: '75%',
     height: 65,
     paddingVertical: 10,
   },
-  buttonWrapper:{
+  buttonWrapper: {
     width: '20%',
     height: 45,
     borderRadius: 15,
     backgroundColor: '#C996CC',
-    alignSelf:'flex-end',
+    alignSelf: 'flex-end',
     justifyContent: 'center',
-    alignItems:'center'
-  }
+    alignItems: 'center',
+  },
 });
 
 export default styles;

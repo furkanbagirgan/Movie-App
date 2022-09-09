@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, Image, SafeAreaView, Text} from 'react-native';
-import {useSelector,useDispatch} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import styles from './Settings.style';
@@ -9,8 +9,8 @@ import {resetUser} from '../../redux/authSlice';
 
 const Settings = ({navigation}) => {
   //Necessary states are created.
-  const userSession = useSelector((state)=>state.auth.currentUser);
-  const theme = useSelector((state)=>state.theme.theme);
+  const userSession = useSelector(state => state.auth.currentUser);
+  const theme = useSelector(state => state.theme.theme);
   const dispatch = useDispatch();
 
   //Here is the transition to the theme page.
@@ -44,7 +44,10 @@ const Settings = ({navigation}) => {
           style={styles.image}
         />
       </View>
-      <Text style={theme === 'light' ? styles.lightUserName : styles.darkUserName}>{'@ '+userSession.userName}</Text>
+      <Text
+        style={theme === 'light' ? styles.lightUserName : styles.darkUserName}>
+        {'@ ' + userSession.userName}
+      </Text>
       <Button title="Theme" onClick={goTheme} />
       <Button title="Edit profile" onClick={goEditProfile} />
       <Button title="Log out" onClick={logOut} />

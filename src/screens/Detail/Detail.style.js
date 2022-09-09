@@ -1,4 +1,4 @@
-import {Dimensions, StyleSheet} from 'react-native';
+import {StyleSheet} from 'react-native';
 
 //Here the styles of the contactCard are created.
 const styles = StyleSheet.create({
@@ -7,28 +7,28 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     paddingHorizontal: 15,
     paddingVertical: 15,
-    backgroundColor: 'white'
+    backgroundColor: 'white',
   },
   darkContainer: {
     flex: 1,
     flexDirection: 'column',
     paddingHorizontal: 15,
     paddingVertical: 15,
-    backgroundColor: '#1C0C5B'
+    backgroundColor: '#1C0C5B',
   },
-  lightLoadingContainer:{
+  lightLoadingContainer: {
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'white'
+    backgroundColor: 'white',
   },
-  darkLoadingContainer:{
+  darkLoadingContainer: {
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '1C0C5B'
+    backgroundColor: '1C0C5B',
   },
   imageWrapper: {
     width: '100%',
@@ -51,61 +51,61 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 20,
     color: 'black',
-    marginTop: 15
+    marginTop: 15,
   },
   darkName: {
     fontWeight: 'bold',
     fontSize: 20,
     color: '#C996CC',
-    marginTop: 15
+    marginTop: 15,
   },
   lightDescription: {
     color: 'black',
-    marginVertical: 10
+    marginVertical: 10,
   },
   darkDescription: {
     color: '#C996CC',
-    marginVertical: 10
+    marginVertical: 10,
   },
   lightVote: {
     color: 'black',
     fontWeight: 'bold',
     fontSize: 18,
     marginVertical: 10,
-    alignSelf: 'center'
+    alignSelf: 'center',
   },
   darkVote: {
     color: '#C996CC',
     fontWeight: 'bold',
     fontSize: 18,
-    alignSelf: 'center'
+    alignSelf: 'center',
   },
-  genresWrapper:{
-    flexDirection:'row',
-    marginBottom: 10
+  genresWrapper: {
+    flexDirection: 'row',
+    marginBottom: 10,
   },
-  lightGenre:{
+  lightGenre: {
     color: 'black',
     fontSize: 16,
   },
-  darkGenre:{
+  darkGenre: {
     color: '#C996CC',
     fontSize: 16,
   },
-  companyWrapper:{
-    flexDirection:'row',
+  companyWrapper: {
+    flexDirection: 'row',
   },
-  lightHeader:{
+  lightHeader: {
     color: 'black',
     fontWeight: 'bold',
     fontSize: 18,
-    marginVertical:5
+    marginVertical: 5,
   },
-  darkHeader:{
+  darkHeader: {
     color: '#C996CC',
     fontWeight: 'bold',
     fontSize: 18,
-    marginVertical:5
+    marginVertical: 5,
   },
 });
 

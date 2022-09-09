@@ -8,7 +8,7 @@ const HorizontalFilters = ({filters, activeFilter, setActiveFilter}) => {
     <ScrollView
       bounces={false}
       scrollEnabled={true}
-      overScrollMode='never'
+      overScrollMode="never"
       horizontal={true}>
       <View style={styles.filterContainer}>
         {filters.map((item, index) => (
@@ -17,7 +17,9 @@ const HorizontalFilters = ({filters, activeFilter, setActiveFilter}) => {
             onPress={() => setActiveFilter(item.key)}>
             <View
               style={
-                activeFilter === item.key ? styles.activeFilter : styles.filterItem
+                activeFilter === item.key
+                  ? styles.activeFilter
+                  : styles.filterItem
               }>
               <Text style={styles.filterTitle}>{item.title}</Text>
             </View>

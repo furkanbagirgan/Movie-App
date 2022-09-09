@@ -82,7 +82,12 @@ const Search = ({navigation}) => {
                 />
               </View>
               <View style={styles.buttonWrapper}>
-                <Icon name="magnify" size={25} color='white' onPress={getMoviesBySearch} />
+                <Icon
+                  name="magnify"
+                  size={25}
+                  color="white"
+                  onPress={getMoviesBySearch}
+                />
               </View>
             </View>
           }

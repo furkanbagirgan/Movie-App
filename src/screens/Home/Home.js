@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import {SafeAreaView, Text, FlatList, View} from 'react-native';
 import {useSelector, useDispatch} from 'react-redux';
 
@@ -17,22 +17,22 @@ const Home = ({navigation}) => {
   const [selectedFilter, setSelectedFilter] = useState('top_rated');
 
   //function that returns movies according to the selected filter
-  const getMoviesByFilter = () => {
+  const getMoviesByFilter = useCallback(() => {
     dispatch(getFilteredMovies(selectedFilter));
-  };
+  }, [selectedFilter, dispatch]);
 
   //It runs the getMoviesByFilter function every time the selected filter changes.
   useEffect(() => {
     getMoviesByFilter();
-  }, [selectedFilter]);
+  }, [selectedFilter, getMoviesByFilter]);
 
-  //Here is the function where key assignments of the fields to repeat in the flatlist are made.
+  //Here is the function where key assignments of the fields to repeat in the flat list are made.
   const keyExtractor = item => {
     return String(item.id);
   };
 
   //Here, there is a function that adjusts how the areas to be repeated in the
-  //flatlist will appear on the screen. Also, a movieCard component is created for each chat.
+  //flat list will appear on the screen. Also, a movieCard component is created for each chat.
   const renderItem = ({item}) => {
     return (
       <MovieCard
@@ -51,12 +51,12 @@ const Home = ({navigation}) => {
     navigation.navigate('Detail', {movieId});
   };
 
-  //Here is the function that creates a line to appear between the areas to repeat in the flatlist.
+  //Here is the function that creates a line to appear between the areas to repeat in the flat list.
   const ItemDivider = () => {
     return <View style={styles.divider} />;
   };
 
-  //Here, the flatlist that will appear on the screen are created.
+  //Here, the flat list that will appear on the screen are created.
   return (
     <SafeAreaView
       style={theme === 'light' ? styles.lightContainer : styles.darkContainer}>
