@@ -8,14 +8,24 @@ const styles = StyleSheet.create({
   },
   darkContainer: {
     flex: 1,
-    backgroundColor: '#333',
+    backgroundColor: '#1C0C5B',
+  },
+  errorWrapper:{
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  errorText:{
+    color: 'red',
+    fontSize: 18
   },
   divider: {
-    width: Dimensions.get('screen').width - 94,
+    width: Dimensions.get('screen').width - 30,
     height: 0.7,
     backgroundColor: '#ddd',
     alignSelf: 'flex-end',
-    marginRight: 15,
+    marginLeft: 15,
   },
 });
 
