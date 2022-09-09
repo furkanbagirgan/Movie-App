@@ -16,14 +16,17 @@ const Home = ({navigation}) => {
   const dispatch = useDispatch();
   const [selectedFilter, setSelectedFilter] = useState('top_rated');
 
+  //function that returns movies according to the selected filter
   const getMoviesByFilter = () => {
     dispatch(getFilteredMovies(selectedFilter));
   };
 
+  //It runs the getMoviesByFilter function every time the selected filter changes.
   useEffect(() => {
     getMoviesByFilter();
   }, [selectedFilter]);
 
+  //Here is the function where key assignments of the fields to repeat in the flatlist are made.
   const keyExtractor = item => {
     return String(item.id);
   };
