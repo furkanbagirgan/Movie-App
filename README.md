@@ -1,5 +1,5 @@
-# Assignment-4
-In this assignment, an application with user login and showing movies was developed. The user signs up to the application with their email, password and username. In the application, the home page contains the latest movies. These movies can be filtered by genre. You can search for movies by name from the search page. Finally, it can edit application and account settings.
+# Movie App
+In this project, an application with user login and showing movies was developed. The user signs up to the application with their email, password and username. In the application, the home page contains the latest movies. These movies can be filtered by genre. You can search for movies by name from the search page. Finally, it can edit application and account settings.
 
 ## Used technologies
 - React Native CLI
@@ -39,7 +39,7 @@ In this assignment, an application with user login and showing movies was develo
 ## Installation
 1.Clone Project
 ```
-git clone https://github.com/patika-218-akbank-reactnative-bootcamp/assignment-4-furkanbagirgan.git
+git clone https://github.com/furkanbagirgan/Movie-App.git
 ```
 2.Install the Necessary Packages for Project
 ```
